@@ -21,14 +21,15 @@ class Ui(QtWidgets.QMainWindow):
     # button event handlers
     def loginButtonMethod(self):
         """handles the events initiated by the login button"""
-        print("login button was clicked")
+        # print("login button was clicked")
+        messageBoxHandler("Login Feedback", "login Button clicked", "warning")
 
     def clearButtonMethod(self):
         """handles the clear button events"""
         print("clear button was clicked")
 
 
-def messageBoxHandlger(title, content, iconType="info"):
+def messageBoxHandler(title, content, iconType="info"):
     """message box that display warnings"""
     msgBox = QtWidgets.QMessageBox()  # messagebox object
     # set icon type based on passed icon flag
@@ -44,7 +45,7 @@ def messageBoxHandlger(title, content, iconType="info"):
     msgBox.setText(content)
     msgBox.setWindowTitle(title)
     # show the message Box
-    msgBox.show()
+    msgBox.exec_()
 
 
 def mainApplication():
