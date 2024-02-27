@@ -12,10 +12,20 @@ class Ui(QtWidgets.QMainWindow):
         super(Ui, self).__init__()
         uic.loadUi("login.ui", self)
 
-        # add button functionality here
-
+        # add button event listeners
+        self.btnLogin.clicked.connect(self.loginButtonMethod)
+        self.btnClear.clicked.connect(self.clearButtonMethod)
         # show the window
         self.show()
+
+    # button event handlers
+    def loginButtonMethod(self):
+        """handles the events initiated by the login button"""
+        print("login button was clicked")
+
+    def clearButtonMethod(self):
+        """handles the clear button events"""
+        print("clear button was clicked")
 
 
 def mainApplication():
