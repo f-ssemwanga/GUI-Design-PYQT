@@ -28,6 +28,25 @@ class Ui(QtWidgets.QMainWindow):
         print("clear button was clicked")
 
 
+def messageBoxHandlger(title, content, iconType="info"):
+    """message box that display warnings"""
+    msgBox = QtWidgets.QMessageBox()  # messagebox object
+    # set icon type based on passed icon flag
+    if iconType == "info":
+        msgBox.setIcon(QtWidgets.QMessageBox.Information)
+    elif iconType == "question":
+        msgBox.setIcon(QtWidgets.QMessageBox.Question)
+    elif iconType == "warning":
+        msgBox.setIcon(QtWidgets.QMessageBox.Warning)
+    else:
+        msgBox.setIcon(QtWidgets.QMessageBox.Critical)
+    # set title and content
+    msgBox.setText(content)
+    msgBox.setWindowTitle(title)
+    # show the message Box
+    msgBox.show()
+
+
 def mainApplication():
     """Main application that will load the window instance"""
     app = QtWidgets.QApplication(sys.argv)

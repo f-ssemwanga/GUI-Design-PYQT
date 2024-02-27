@@ -130,6 +130,8 @@ class Ui_MainWindow(object):
         self.bgLabel.setGeometry(QtCore.QRect(0, 0, 621, 431))
         self.bgLabel.setAutoFillBackground(False)
         self.bgLabel.setText("")
+        self.bgLabel.setPixmap(QtGui.QPixmap("c:\\Git Projects\\PYGT5\\GUI-Design-PYQT\\form_img.jpg"))
+        self.bgLabel.setScaledContents(True)
         self.bgLabel.setObjectName("bgLabel")
         self.bgLabel.raise_()
         self.verticalLayoutWidget.raise_()

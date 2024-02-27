@@ -266,6 +266,12 @@ background:rgb(192,182,238)
     <property name="text">
      <string/>
     </property>
+    <property name="pixmap">
+     <pixmap>form_img.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
    </widget>
    <zorder>bgLabel</zorder>
    <zorder>verticalLayoutWidget</zorder>
