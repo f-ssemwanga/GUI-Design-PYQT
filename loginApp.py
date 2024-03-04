@@ -52,6 +52,7 @@ class Ui(QtWidgets.QMainWindow):
                 if data[0][0] == enteredPassword:
                     messageBoxHandler("Logon Success", "You logged in successfully")
                     self.close()
+                    self.open_videos_window()  # open the videos window
                 else:
                     self.attempts_remaining -= 1
                     print(f"attempts remaining: {self.attempts_remaining}")
@@ -84,6 +85,25 @@ class Ui(QtWidgets.QMainWindow):
             self.close()
         elif e.key() == Qt.Key_Return:
             self.loginButtonMethod()
+
+    # handle opening of the videos window
+    def open_videos_window(self):
+        """Create videos window instance and show it"""
+        self.videos_window = VideosUi()
+        self.videos_window.show()
+
+
+# video database widget
+class VideosUi(QtWidgets.QMainWindow):
+    """window to display videos queried from the database"""
+
+    def __init__(self):
+        super(VideosUi, self).__init__()
+        uic.loadUi("videoDatabase.ui", self)
+
+        # event listeners
+
+        self.show()
 
 
 def messageBoxHandler(title, content, iconType="info"):
@@ -130,7 +150,8 @@ def mainApplication():
     app = QtWidgets.QApplication(sys.argv)
     window = Ui()
     window.show()
-    sys.exit(app.exec_())
+    app.quit()  # quit when all windows are closed
+    sys.exit(app.exec_())  # execute the application event loop
 
 
 mainApplication()
