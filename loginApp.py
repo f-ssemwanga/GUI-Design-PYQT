@@ -1,6 +1,7 @@
 # import required modules
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import sys
+import sqlite3
 
 # create the widget class - each window must have its own class
 
@@ -38,7 +39,12 @@ class Ui(QtWidgets.QMainWindow):
                 "warning",
             )
         else:
-            messageBoxHandler("Login Feedback", "login Button clicked", "warning")
+            # messageBoxHandler("Login Feedback", "login Button clicked", "warning")
+            # connect to the database and validate the credentials
+            # 1. Query and print returned data
+            query = f"""Select password FROM users WHERE username=?"""
+            data = executeStatementHelper(query, args=(enteredUsername,))
+            print(data)
 
     def clearButtonMethod(self):
         """handles the clear button events"""
@@ -71,13 +77,32 @@ def messageBoxHandler(title, content, iconType="info"):
     msgBox.setWindowTitle(title)
     # show the message Box
     msgBox.exec_()
+# connecting to the database
+def dbConnection():
+    conn = sqlite3.connect("usersAndFilms.db")
+    cur = conn.cursor()
+    return (conn, cur)
+
+
+def executeStatementHelper(query, args=None):
+    "connects and executes a given query"
+    conn, cur = dbConnection()
+    if not args:
+        cur.execute(query)
+    else:
+        cur.execute(query, args)
+    # fetch data
+    selectedData = cur.fetchall()
+    conn.commit()
+    conn.close()
+    return selectedData
 
 
 def mainApplication():
     """Main application that will load the window instance"""
     app = QtWidgets.QApplication(sys.argv)
     window = Ui()
-    app.exec_()
-
+    window.show()
+    sys.exit(app.exec_())
 
 mainApplication()
