@@ -21,7 +21,12 @@ class Ui(QtWidgets.QMainWindow):
     # button event handlers
     def loginButtonMethod(self):
         """handles the events initiated by the login button"""
-        # print("login button was clicked")
+        # print("login button was clicked")I
+        # access data in form fields
+        enteredUsername = self.userNameInput.text().lower()
+        enteredPassword = self.passwordInput.text()
+        print(f"username: {enteredUsername} | password: {enteredPassword}")
+
         messageBoxHandler("Login Feedback", "login Button clicked", "warning")
 
     def clearButtonMethod(self):
