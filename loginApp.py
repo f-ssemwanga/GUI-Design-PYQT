@@ -15,6 +15,7 @@ class Ui(QtWidgets.QMainWindow):
         # add button event listeners
         self.btnLogin.clicked.connect(self.loginButtonMethod)
         self.btnClear.clicked.connect(self.clearButtonMethod)
+
         # show the window
         self.show()
 
@@ -25,13 +26,32 @@ class Ui(QtWidgets.QMainWindow):
         # access data in form fields
         enteredUsername = self.userNameInput.text().lower()
         enteredPassword = self.passwordInput.text()
-        print(f"username: {enteredUsername} | password: {enteredPassword}")
 
-        messageBoxHandler("Login Feedback", "login Button clicked", "warning")
+        # print(f"username: {enteredUsername} | password: {enteredPassword}") #check message box connection
+        # messageBoxHandler("Login Feedback", "login Button clicked", "warning")
+
+        # perform validation  - presence check on the message box
+        if enteredPassword == "" or enteredPassword == "":
+            messageBoxHandler(
+                "Blank field detected!",
+                "Password and username must be entered",
+                "warning",
+            )
+        else:
+            messageBoxHandler("Login Feedback", "login Button clicked", "warning")
 
     def clearButtonMethod(self):
         """handles the clear button events"""
-        print("clear button was clicked")
+        # print("clear button was clicked")
+        self.userNameInput.setText("")
+        self.passwordInput.setText("")
+
+    # adding key bindings with keyPressEvent
+    def keyPressEvent(self, e):
+        if e.key() == QtCore.Qt.Key_Escape:
+            self.close()
+        elif e.key() == QtCore.Qt.Key_Return:
+            self.loginButtonMethod()
 
 
 def messageBoxHandler(title, content, iconType="info"):
