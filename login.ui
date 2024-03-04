@@ -43,10 +43,18 @@ QLabel{
 color:rgb(100,170,255);
 }
 QLineEdit{
-color:rgb(100,170,255);
+color:rgb(13,3,75);
 }
+QLineEdit::focus{
+background:rgb(118,239,142);
+color:rgb(4,36,10;)
+}
+
 QLabel#bgLabel{
 color:rgb(20,20,0);
+}
+QPushButton::hover{
+background:rgb(192,182,238)
 }</string>
    </property>
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -257,6 +265,12 @@ color:rgb(20,20,0);
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>form_img.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <zorder>bgLabel</zorder>
