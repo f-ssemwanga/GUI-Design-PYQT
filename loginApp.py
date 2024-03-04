@@ -13,6 +13,8 @@ class Ui(QtWidgets.QMainWindow):
         super(Ui, self).__init__()
         uic.loadUi("login.ui", self)
 
+        self.attempts_remaining = 3  # variable to keep track of login attempts
+
         # add button event listeners
         self.btnLogin.clicked.connect(self.loginButtonMethod)
         self.btnClear.clicked.connect(self.clearButtonMethod)
@@ -51,11 +53,21 @@ class Ui(QtWidgets.QMainWindow):
                     messageBoxHandler("Logon Success", "You logged in successfully")
                     self.close()
                 else:
-                    messageBoxHandler(
-                        "Login attempt failed",
-                        "Incorrect username or password",
-                        "warning",
-                    )
+                    self.attempts_remaining -= 1
+                    print(f"attempts remaining: {self.attempts_remaining}")
+                    if self.attempts_remaining == 0:
+                        messageBoxHandler(
+                            "Login attempt failed",
+                            "Maximum attempts reached. Closing window..",
+                            "warning",
+                        )
+                        self.close()
+                    else:
+                        messageBoxHandler(
+                            "Login attempt failed",
+                            "Incorrect username or password",
+                            "warning",
+                        )
             except IndexError:
                 messageBoxHandler("Login attempt failed", "try again", "warning")
 
