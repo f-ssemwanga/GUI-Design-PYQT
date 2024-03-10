@@ -121,11 +121,11 @@ class VideosUi(QtWidgets.QMainWindow):
         classification_data = ""
 
         # Concatenate data from each row for each column
-        for row_data in data:
-            title_data += str(row_data[0]) + "\n"
-            studio_data += str(row_data[1]) + "\n"
-            release_date_data += str(row_data[2]) + "\n"
-            classification_data += str(row_data[3]) + "\n"
+        for record in data:
+            title_data += str(record[0]) + "\n"
+            studio_data += str(record[1]) + "\n"
+            release_date_data += str(record[2]) + "\n"
+            classification_data += str(record[3]) + "\n"
 
         # Display concatenated data in the labels
         self.lblTitleData.setText(title_data)
