@@ -89,6 +89,7 @@ class Ui(QtWidgets.QMainWindow):
     # handle opening of the videos window
     def open_videos_window(self):
         """Create videos window instance and show it"""
+        print("Opening video ui")
         self.videos_window = VideosUi()
         self.videos_window.show()
 
@@ -100,10 +101,40 @@ class VideosUi(QtWidgets.QMainWindow):
     def __init__(self):
         super(VideosUi, self).__init__()
         uic.loadUi("videoDatabase.ui", self)
+        print("videos window initialised")
 
-        # event listeners
-
+        self.btnClose.clicked.connect(self.closeButtonMethod)
         self.show()
+        self.populate_video_data()
+
+    def populate_video_data(self):
+        """Query data when the window is shown"""
+        # print("Populate data method was called")
+        query = "SELECT Title, Studio, ReleaseDate, Classification FROM tblFilm"
+        data = executeStatementHelper(query)
+        print("results from the query: ", data)
+
+        # Initialize strings to hold concatenated data for each column
+        title_data = ""
+        studio_data = ""
+        release_date_data = ""
+        classification_data = ""
+
+        # Concatenate data from each row for each column
+        for row_data in data:
+            title_data += str(row_data[0]) + "\n"
+            studio_data += str(row_data[1]) + "\n"
+            release_date_data += str(row_data[2]) + "\n"
+            classification_data += str(row_data[3]) + "\n"
+
+        # Display concatenated data in the labels
+        self.lblTitleData.setText(title_data)
+        self.lblStudioData.setText(studio_data)
+        self.lblReleaseDateData.setText(release_date_data)
+        self.lblClassificationData.setText(classification_data)
+
+    def closeButtonMethod(self):
+        self.close()
 
 
 def messageBoxHandler(title, content, iconType="info"):
@@ -134,6 +165,7 @@ def dbConnection():
 def executeStatementHelper(query, args=None):
     "connects and executes a given query"
     conn, cur = dbConnection()
+
     if not args:
         cur.execute(query)
     else:
@@ -150,8 +182,10 @@ def mainApplication():
     app = QtWidgets.QApplication(sys.argv)
     window = Ui()
     window.show()
+
     app.quit()  # quit when all windows are closed
     sys.exit(app.exec_())  # execute the application event loop
 
 
+# mainApplication()
 mainApplication()

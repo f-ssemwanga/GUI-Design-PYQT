@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Git Projects\PYGT5\gui-design-pyqt\videoDatabase.ui'
+# Form implementation generated from reading ui file 'c:\Git Projects\PYGT5\GUI-Design-PYQT\videoDatabase.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -16,25 +16,47 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1072, 395)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setStyleSheet("QLabel#lblMainTitle, Spacer#titleVerticalSpacer{\n"
+"background-color:rgb(0, 255, 255);}\n"
+"\n"
+"#lblTitleData, #lblStudioData, #lblReleaseDateData, #lblClassificationData{\n"
+"background-color:rgb(170, 170, 255);\n"
+"font: 10pt \"Arial\";\n"
+"margin-top:5px;\n"
+"\n"
+"\n"
+"}\n"
+"QPushButton::hover{\n"
+"background:rgb(192,182,238);\n"
+"    font: 75 11pt \"Arial\";\n"
+"color:\"black\";\n"
+"}\n"
+"QPushButton{\n"
+"background:rgb(0, 0, 127);\n"
+"    \n"
+"    font: 75 11pt \"Arial\";\n"
+"color:rgb(170, 255, 255);\n"
+"}")
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 20, 1011, 181))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 20, 1021, 271))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.lblMainTitle = QtWidgets.QLabel(self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(20)
-        self.label.setFont(font)
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
-        self.verticalLayout_2.addWidget(self.label)
+        self.lblMainTitle.setFont(font)
+        self.lblMainTitle.setAlignment(QtCore.Qt.AlignCenter)
+        self.lblMainTitle.setObjectName("lblMainTitle")
+        self.verticalLayout_2.addWidget(self.lblMainTitle)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.titleField = QtWidgets.QLabel(self.verticalLayoutWidget)
         font = QtGui.QFont()
@@ -42,7 +64,7 @@ class Ui_MainWindow(object):
         self.titleField.setFont(font)
         self.titleField.setObjectName("titleField")
         self.horizontalLayout.addWidget(self.titleField)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(100, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem1)
         self.studioField = QtWidgets.QLabel(self.verticalLayoutWidget)
         font = QtGui.QFont()
@@ -66,35 +88,34 @@ class Ui_MainWindow(object):
         self.classificationField.setFont(font)
         self.classificationField.setObjectName("classificationField")
         self.horizontalLayout.addWidget(self.classificationField)
-        self.horizontalLayout.setStretch(0, 2)
-        self.horizontalLayout.setStretch(1, 1)
-        self.horizontalLayout.setStretch(2, 2)
-        self.horizontalLayout.setStretch(3, 1)
-        self.horizontalLayout.setStretch(4, 2)
-        self.horizontalLayout.setStretch(5, 1)
+        self.horizontalLayout.setStretch(0, 4)
+        self.horizontalLayout.setStretch(2, 3)
+        self.horizontalLayout.setStretch(4, 4)
         self.horizontalLayout.setStretch(6, 2)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
         self.verticalLayout.addLayout(self.verticalLayout_2)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.titleValue = QtWidgets.QLineEdit(self.verticalLayoutWidget)
-        self.titleValue.setObjectName("titleValue")
-        self.horizontalLayout_2.addWidget(self.titleValue)
+        self.lblTitleData = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.lblTitleData.setObjectName("lblTitleData")
+        self.horizontalLayout_2.addWidget(self.lblTitleData)
         spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem4)
-        self.studioValue = QtWidgets.QLineEdit(self.verticalLayoutWidget)
-        self.studioValue.setObjectName("studioValue")
-        self.horizontalLayout_2.addWidget(self.studioValue)
+        self.lblStudioData = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.lblStudioData.setObjectName("lblStudioData")
+        self.horizontalLayout_2.addWidget(self.lblStudioData)
         spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem5)
-        self.releaseDataValue = QtWidgets.QLineEdit(self.verticalLayoutWidget)
-        self.releaseDataValue.setObjectName("releaseDataValue")
-        self.horizontalLayout_2.addWidget(self.releaseDataValue)
+        self.lblReleaseDateData = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.lblReleaseDateData.setObjectName("lblReleaseDateData")
+        self.horizontalLayout_2.addWidget(self.lblReleaseDateData)
         spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem6)
-        self.classificationValue = QtWidgets.QLineEdit(self.verticalLayoutWidget)
-        self.classificationValue.setObjectName("classificationValue")
-        self.horizontalLayout_2.addWidget(self.classificationValue)
+        self.lblClassificationData = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.lblClassificationData.setObjectName("lblClassificationData")
+        self.horizontalLayout_2.addWidget(self.lblClassificationData)
+        self.horizontalLayout_2.setStretch(0, 2)
         self.horizontalLayout_2.setStretch(1, 1)
         self.horizontalLayout_2.setStretch(2, 2)
         self.horizontalLayout_2.setStretch(3, 1)
@@ -102,6 +123,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setStretch(5, 1)
         self.horizontalLayout_2.setStretch(6, 2)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.btnClose = QtWidgets.QPushButton(self.centralwidget)
+        self.btnClose.setGeometry(QtCore.QRect(460, 330, 75, 23))
+        self.btnClose.setObjectName("btnClose")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1072, 21))
@@ -117,8 +141,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Films Database"))
+        self.lblMainTitle.setText(_translate("MainWindow", "Films Database"))
         self.titleField.setText(_translate("MainWindow", "Title"))
         self.studioField.setText(_translate("MainWindow", "Studio"))
         self.releaseField.setText(_translate("MainWindow", "Release Date"))
         self.classificationField.setText(_translate("MainWindow", "Classification"))
+        self.lblTitleData.setText(_translate("MainWindow", "titleData"))
+        self.lblStudioData.setText(_translate("MainWindow", "studioData"))
+        self.lblReleaseDateData.setText(_translate("MainWindow", "releaseDateData"))
+        self.lblClassificationData.setText(_translate("MainWindow", "classificationData"))
+        self.btnClose.setText(_translate("MainWindow", "Close"))

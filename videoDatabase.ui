@@ -14,20 +14,43 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QLabel#lblMainTitle, Spacer#titleVerticalSpacer{
+background-color:rgb(0, 255, 255);}
+
+#lblTitleData, #lblStudioData, #lblReleaseDateData, #lblClassificationData{
+background-color:rgb(170, 170, 255);
+font: 10pt &quot;Arial&quot;;
+margin-top:5px;
+
+
+}
+QPushButton::hover{
+background:rgb(192,182,238);
+	font: 75 11pt &quot;Arial&quot;;
+color:&quot;black&quot;;
+}
+QPushButton{
+background:rgb(0, 0, 127);
+	
+	font: 75 11pt &quot;Arial&quot;;
+color:rgb(170, 255, 255);
+}</string>
+   </property>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>1011</width>
-      <height>181</height>
+      <width>1021</width>
+      <height>271</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="lblMainTitle">
          <property name="font">
           <font>
            <pointsize>20</pointsize>
@@ -42,7 +65,7 @@
         </widget>
        </item>
        <item>
-        <spacer name="verticalSpacer">
+        <spacer name="titleVerticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -55,7 +78,10 @@
         </spacer>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,1,2,1,2,1,2">
+        <layout class="QHBoxLayout" name="horizontalLayout" stretch="4,0,3,0,4,0,2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QLabel" name="titleField">
            <property name="font">
@@ -75,7 +101,7 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
+             <width>100</width>
              <height>20</height>
             </size>
            </property>
@@ -148,9 +174,16 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1,2,1,2,1,2">
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,1,2,1,2,1,2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item>
-        <widget class="QLineEdit" name="titleValue"/>
+        <widget class="QLabel" name="lblTitleData">
+         <property name="text">
+          <string>titleData</string>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="horizontalSpacer_4">
@@ -166,7 +199,11 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLineEdit" name="studioValue"/>
+        <widget class="QLabel" name="lblStudioData">
+         <property name="text">
+          <string>studioData</string>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="horizontalSpacer_5">
@@ -182,7 +219,11 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLineEdit" name="releaseDataValue"/>
+        <widget class="QLabel" name="lblReleaseDateData">
+         <property name="text">
+          <string>releaseDateData</string>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="horizontalSpacer_6">
@@ -198,11 +239,28 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLineEdit" name="classificationValue"/>
+        <widget class="QLabel" name="lblClassificationData">
+         <property name="text">
+          <string>classificationData</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="btnClose">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>330</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Close</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
